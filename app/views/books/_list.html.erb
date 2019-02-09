@@ -1,0 +1,37 @@
+<!-- 共通部分を書いています -->
+
+<!-- ユーザーインフォ -->
+  <!-- フラッシュメッセージ -->
+  <div class="flash-message"><%= flash[:notice] %></div>
+  <div class="col-xs-3">
+    <h2>User info</h2>
+    <!-- ここにimage挿入 -->
+    <table>
+      <tbody>
+        <tr>
+          <th>name</th>
+          <th><%= user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= user.introduction %></th>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <%= link_to "Setting", edit_user_path(current_user.id) %>
+    </div>
+    <%= form_for(book) do |f| %>
+      <h2>New book</h2>
+      <div class="title-area">
+        <p>Title</p>
+        <%= f.text_field :title, class:"form-control", placeholder:"タイトル" %>
+      </div>
+      <div class="opinion-area">
+        <p>Opinion</p>
+        <%= f.text_field :body, class:"form-control", placeholder:"感想" %>
+      </div>
+      <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+    <% end %>
+  </div>
+<!-- 新規追加 -->

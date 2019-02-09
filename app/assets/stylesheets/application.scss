@@ -13,5 +13,61 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /*bootstrap用*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar-inverse {
+  position: relative;
+}
+
+/*サインアップ・サインイン画面*/
+.sign_up_container {
+  padding: 20px 0 0 150px;
+}
+
+.action {
+  margin: 10px 0;
+}
+
+
+/*ヘッダー*/
+nav {
+  color: white;
+  line-height: 50px;
+}
+
+.flash-message {
+  color: green;
+}
+
+nav li {
+  color: gray;
+  margin: 0 20px;
+}
+
+.row {
+  margin: 10px 0 0 100px;
+}
+
+/*userの本一覧*/
+.user-book-list {
+  margin: 20px 0 0 100px;
+}
+
+.user-info container {
+  margin: 20px 0 0 100px;
+}
+
+.about-message {
+  margin: 20px 0 0 100px;
+}
+
+.top-messages {
+  margin: 20px 0 0 100px;
+}
+/*フッター*/
+footer p {
+  float: right;
+}
