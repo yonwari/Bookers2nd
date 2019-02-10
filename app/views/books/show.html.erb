@@ -9,8 +9,8 @@
       <tbody>
         <tr>
           <td>
-            img
-            <%= link_to @user.name, user_path %>
+            <%= attachment_image_tag @book.user, :image, :fill, 50, 50, format: 'jpeg', class:"img-circle pull-left profile-img", fallback:"no_image.jpg" %>
+            <%= link_to @user.name, user_path(@book.user.id) %>
           </td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>

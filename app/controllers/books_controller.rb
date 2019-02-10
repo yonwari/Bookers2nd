@@ -21,11 +21,17 @@ class BooksController < ApplicationController
   end
 
   def create
+    @user = User.find(current_user.id)
+    @books = Book.all
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
-    flash[:notice] = "book was created successfully!"
-    redirect_to books_path
+    # エラーで分岐
+    if @book.save
+      flash[:notice] = "book was created successfully!"
+      redirect_to books_path
+    else
+      render "books/index"
+    end
   end
 
   def edit
@@ -33,10 +39,14 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update
-    flash[:notice] = "book was updated successfully!"
-    redirect_to book_path(book)
+    @book = Book.find(params[:id])
+    # エラーで分岐
+    if @book.update(book_params)
+      flash[:notice] = "book was updated successfully!"
+      redirect_to book_path(@book)
+    else
+      render "books/edit"
+    end
   end
 
   def destroy

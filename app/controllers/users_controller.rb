@@ -7,9 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @book = Book.new
-    @books = Book.where(user_id:params[:id])
-    @user = User.find(current_user.id)
+    @book = Book.new #新規作成用
+    @books = Book.where(user_id:params[:id]) #book一覧表示用
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -17,10 +17,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(user_params)
-    @user.update
-    flash[:notice] = "user was updated successfully!"
-    redirect_to user_path
+    @user = User.find(params[:id])
+    # エラーで分岐
+    if @user.update(user_params)
+      flash[:notice] = "user was updated successfully!"
+      redirect_to user_path(@user.id)
+    else
+      render "users/edit"
+    end
   end
 
   # 以下ストロングパラメータ

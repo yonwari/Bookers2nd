@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 #ログイン後のリダイレクト変更
   private
   def after_sign_in_path_for(resource)
-    after_login_to_index_path
+    user_path(current_user.id)
   end
 
 end

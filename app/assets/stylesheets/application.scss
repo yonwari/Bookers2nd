@@ -18,13 +18,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/*ヘッダーの位置調整*/
 .navbar-inverse {
   position: relative;
 }
 
 /*サインアップ・サインイン画面*/
 .sign_up_container {
-  padding: 20px 0 0 150px;
+  padding: 0 150px;
 }
 
 .action {
@@ -47,9 +49,6 @@ nav li {
   margin: 0 20px;
 }
 
-.row {
-  margin: 10px 0 0 100px;
-}
 
 /*userの本一覧*/
 .user-book-list {
@@ -60,12 +59,20 @@ nav li {
   margin: 20px 0 0 100px;
 }
 
+/*editの枠調整*/
+.book-edit-container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+
+/*枠調整*/
 .about-message {
-  margin: 20px 0 0 100px;
+  margin: 20px 100px 0 100px;
 }
 
 .top-messages {
-  margin: 20px 0 0 100px;
+  margin: 20px 100px 0 100px;
 }
 /*フッター*/
 footer p {

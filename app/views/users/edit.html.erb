@@ -1,6 +1,28 @@
 <div class="user-info container">
-  <h2>User info</h2>
   <div class="form-body">
-    aiueo
+  <!-- エラーメッセージ -->
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @user.errors.count %>errors prohibited this obj from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <!-- エラーここまで -->
+    <%= form_for(@user) do |f| %>
+      <h2>User info</h2>
+      <label class="control-label sr-only" for="inputEmail">Name</label>
+      <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"name" %>
+      <label class="control-label sr-only" for="inputEmail">Image</label>
+      <%= f.attachment_field :image, placeholder:"ファイルを選択", class:"user-edit-form" %>
+      <label class="control-label sr-only" for="inputEmail">Introduction</label>
+      <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"introduction" %>
+      <div class="action">
+        <%= f.submit "Update User", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+      </div>
+    <% end %>
   </div>
 </div>
