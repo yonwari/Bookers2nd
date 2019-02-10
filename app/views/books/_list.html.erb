@@ -15,13 +15,12 @@
       </div>
     <% end %>
   <!-- エラーここまで -->
+
   <div class="col-xs-3">
     <h2>User info</h2>
-    <table>
+    <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', class:"profile-image", fallback:"no_image.jpg", :size => '100x100' %>
+    <table class="table">
       <tbody>
-        <tr>
-          <th><%= attachment_image_tag user, :image, :fill, 60, 60, format: 'jpeg', class:"img-circle pull-left profile-img", fallback:"no_image.jpg" %></th>
-        </tr>
         <tr>
           <th>name</th>
           <th><%= user.name %></th>
@@ -30,30 +29,30 @@
           <th>introduction</th>
           <th><%= user.introduction %></th>
         </tr>
-        <tr>
-          <th>
-            <div class="row">
-              <!-- 自ユーザーの時のみ編集ボタン表示 -->
-              <% if current_user.id == user.id %>
-                <%= link_to "Setting", edit_user_path(user.id), class:"edit_user_#{user.id}" %>
-              <% end %>
-            </div>
-          </th>
-        </tr>
       </tbody>
     </table>
+    <div class="row">
+      <!-- 自ユーザーの時のみ編集ボタン表示 -->
+      <% if current_user.id == user.id %>
+        <%= link_to edit_user_path(user.id), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" do %>
+          <div></div>
+        <% end %>
+      <% end %>
+    </div>
 
 <!-- 新規追加 -->
+    <h2>New book</h2>
     <%= form_for(book) do |f| %>
-      <h2>New book</h2>
-      <div class="title-area">
+      <div class="field row">
         <p>Title</p>
-        <%= f.text_field :title, class:"book-title", placeholder:"タイトル" %>
+        <%= f.text_field :title, class:"col-xs-12 book_title", placeholder:"タイトル" %>
       </div>
-      <div class="opinion-area">
+      <div class="field row">
         <p>Opinion</p>
-        <%= f.text_field :body, class:"book-body", placeholder:"感想" %>
+        <%= f.text_field :body, class:"col-xs-12 book_body", placeholder:"感想" %>
       </div>
-      <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+      <div class="row">
+        <%= f.submit 'Create Book', class:"btn btn-primary col-xs-12" %>
+      </div>
     <% end %>
   </div>

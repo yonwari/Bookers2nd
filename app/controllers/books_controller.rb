@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     # エラーで分岐
     if @book.save
       flash[:notice] = "book was created successfully!"
-      redirect_to books_path
+      redirect_to book_path(@book)
     else
       render "books/index"
     end
@@ -60,7 +60,7 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  # 以下ストロングパラメータ
+  # ストロングパラメータ
   private
 
   def book_params

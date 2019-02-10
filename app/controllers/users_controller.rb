@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # 以下ストロングパラメータ
+  # ストロングパラメータ
   private
   def user_params
     params.require(:user).permit(

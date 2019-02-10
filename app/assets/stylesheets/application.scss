@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -18,63 +19,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*ボタン位置調整*/
+.btn {
+  margin: 10px 0;
+}
 
-/*ヘッダーの位置調整*/
+/*ヘッダー調整*/
 .navbar-inverse {
   position: relative;
 }
 
-/*サインアップ・サインイン画面*/
-.sign_up_container {
-  padding: 0 150px;
-}
-
-.action {
-  margin: 10px 0;
-}
-
-
-/*ヘッダー*/
 nav {
   color: white;
-  line-height: 50px;
-}
-
-.flash-message {
-  color: green;
+  line-height: 56px;
 }
 
 nav li {
   color: gray;
-  margin: 0 20px;
 }
 
-
-/*userの本一覧*/
-.user-book-list {
-  margin: 20px 0 0 100px;
+/*フラッシュメッセージ色変更*/
+.flash-message {
+  color: green;
 }
 
-.user-info container {
-  margin: 20px 0 0 100px;
-}
-
-/*editの枠調整*/
-.book-edit-container {
-  width: 40%;
-  margin: 0 auto;
-}
-
-
-/*枠調整*/
-.about-message {
-  margin: 20px 100px 0 100px;
-}
-
-.top-messages {
-  margin: 20px 100px 0 100px;
-}
-/*フッター*/
-footer p {
-  float: right;
+/*エラーメッセージ色変更*/
+#error_explanation {
+  color: red;
 }
