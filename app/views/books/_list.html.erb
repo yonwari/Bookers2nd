@@ -33,24 +33,27 @@
         <tr>
           <th>
             <div class="row">
-              <%= link_to "Setting", edit_user_path(current_user.id) %>
+              <!-- 自ユーザーの時のみ編集ボタン表示 -->
+              <% if current_user.id == user.id %>
+                <%= link_to "Setting", edit_user_path(user.id), class:"edit_user_#{user.id}" %>
+              <% end %>
             </div>
           </th>
         </tr>
       </tbody>
     </table>
 
+<!-- 新規追加 -->
     <%= form_for(book) do |f| %>
       <h2>New book</h2>
       <div class="title-area">
         <p>Title</p>
-        <%= f.text_field :title, class:"form-control", placeholder:"タイトル" %>
+        <%= f.text_field :title, class:"book-title", placeholder:"タイトル" %>
       </div>
       <div class="opinion-area">
         <p>Opinion</p>
-        <%= f.text_field :body, class:"form-control", placeholder:"感想" %>
+        <%= f.text_field :body, class:"book-body", placeholder:"感想" %>
       </div>
       <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-base-1 mt-20" %>
     <% end %>
   </div>
-<!-- 新規追加 -->

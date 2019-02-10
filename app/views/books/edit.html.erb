@@ -14,12 +14,12 @@
   <h1> Editing Book</h1>
   <%= form_for(@book) do |f| %>
     <p>Title</p>
-    <%= f.text_field :title, class:"form-control", placeholder:"タイトル" %>
+    <%= f.text_field :title, class:"book-title", placeholder:"タイトル" %>
     <p>Opinion</p>
-    <%= f.text_field :body, class:"form-control", placeholder:"感想" %><br>
+    <%= f.text_field :body, class:"book-body", placeholder:"感想" %><br>
     <%= f.submit 'Update Book', class:"btn btn-primary col-xs-12" %>
   <% end %>
-  <%= link_to "Show", book_path(@book.id) %>
+  <%= link_to "Show", book_path(@book.id), class:"book_#{@book.id}" %>
   |
-  <%= link_to "Back", books_path %>
+  <%= link_to "Back", books_path, class:"back" %>
 </div>

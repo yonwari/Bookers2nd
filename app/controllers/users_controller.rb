@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  
+  # ユーザー認証
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
+
   def index
     @book = Book.new
     @users = User.all
@@ -29,12 +32,18 @@ class UsersController < ApplicationController
 
   # 以下ストロングパラメータ
   private
-
   def user_params
     params.require(:user).permit(
               :name,
               :image,
               :introduction)
+  end
+
+  # ユーザー認証
+  def correct_user
+    if current_user != User.find(params[:id])
+      redirect_to books_path
+    end
   end
 
 end
